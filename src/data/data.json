@@ -1,0 +1,35 @@
+{
+   "signin": {
+      "login_input": "Введите логин",
+      "name_input": "Введите имя",
+      "button_title": "Войти",
+      "error_title": "Заполните все поля"
+   },
+   "signout": {
+      "button_title": "Выйти"
+   },
+   "home": {
+      "title": "Прогноз погоды на завтра",
+      "button_title": "Города"
+   },
+   "cities": {
+      "title": "Города",
+      "button_title": "Прогноз погоды",
+      "add_button": "+",
+      "popup": {
+         "title": "Добавить город",
+         "edit_title": "Редактировать город",
+         "city_input": "Название города",
+         "latitude_input": "Широта",
+         "longitude_input": "Долгота",
+         "add_button": "Добавить",
+         "save_button": "Сохранить",
+         "cancel_button": "Отмена",
+         "error_title": "Заполните все поля"
+      },
+      "city": {
+         "edit_button": "Редактировать",
+         "delete_button": "Удалить"
+      }
+   }
+}
