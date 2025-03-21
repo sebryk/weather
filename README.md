@@ -3,7 +3,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/sebryk/weather
+git clone git@github.com:sebryk/weather.git
 ```
 
 2. Peer the repository:
@@ -23,4 +23,3 @@ npm install
 ```bash
 npm run dev
 ```
-# weather
