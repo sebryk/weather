@@ -50,6 +50,7 @@ const citiesSlice = createSlice({
       },
       deleteCity: (state, action: PayloadAction<string>) => {
          state.cities = state.cities.filter((city) => city.id !== action.payload);
+         state.weather = state.weather.filter((weather) => weather.cityId !== action.payload);
       },
    },
    extraReducers: (builder) => {
