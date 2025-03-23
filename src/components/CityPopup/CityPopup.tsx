@@ -1,9 +1,10 @@
-import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button, Typography } from '@mui/material';
+import { DialogTitle, DialogContent, DialogActions, TextField, Button, Typography } from '@mui/material';
 import data from '../../data/data.json';
 import { useState, useEffect, ChangeEvent, FC } from 'react';
 import { useAppDispatch } from '../../hooks/redux';
 import { addCity, updateCity } from '../../store/slices/citiesSlice';
 import { ICityPopupProps } from '../../types/types';
+import { Container } from './styles';
 
 const CityPopup: FC<ICityPopupProps> = ({ open, onClose, editCity }) => {
    const {
@@ -27,7 +28,6 @@ const CityPopup: FC<ICityPopupProps> = ({ open, onClose, editCity }) => {
    });
 
    useEffect(() => {
-      setIsError(false);
       if (editCity) {
          setFormData(editCity);
       } else {
@@ -47,6 +47,12 @@ const CityPopup: FC<ICityPopupProps> = ({ open, onClose, editCity }) => {
       }));
    };
 
+   const handleClose = () => {
+      setFormData({ id: '', name: '', latitude: '', longitude: '' });
+      setIsError(false);
+      onClose();
+   };
+
    const handleSubmit = () => {
       if (!formData.name || !formData.latitude || !formData.longitude) {
          setIsError(true);
@@ -57,12 +63,11 @@ const CityPopup: FC<ICityPopupProps> = ({ open, onClose, editCity }) => {
       } else {
          dispatch(addCity(formData));
       }
-      setFormData({ id: '', name: '', latitude: '', longitude: '' });
-      onClose();
+      handleClose();
    };
 
    return (
-      <Dialog open={open} onClose={onClose}>
+      <Container open={open} onClose={handleClose}>
          <DialogTitle>{editCity ? edit_title : title}</DialogTitle>
          <DialogContent>
             <TextField
@@ -99,9 +104,9 @@ const CityPopup: FC<ICityPopupProps> = ({ open, onClose, editCity }) => {
             <Button variant="contained" color="primary" onClick={handleSubmit}>
                {editCity ? save_button : add_button}
             </Button>
-            <Button onClick={onClose}>{cancel_button}</Button>
+            <Button onClick={handleClose}>{cancel_button}</Button>
          </DialogActions>
-      </Dialog>
+      </Container>
    );
 };
 
