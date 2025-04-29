@@ -37,6 +37,8 @@ export const WeatherWrapper = styled('div')`
    display: flex;
    align-items: center;
    gap: 10px;
+   min-width: 83px;
+   justify-content: space-between;
 `;
 
 export const Degree = styled('p')`

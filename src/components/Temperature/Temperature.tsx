@@ -8,11 +8,12 @@ import FoggyIcon from '../../assets/icons/foggy.svg';
 import Cloudy from '../../assets/icons/cloudy.svg';
 import { getWeatherCategory } from '../../utils/getWeatherCategory';
 
+const weatherIcons = [<SunnyIcon />, <Cloudy />, <RainyIcon />, <SnowIcon />, <FoggyIcon />];
+
 const Temperature: FC<{ cityId: string }> = ({ cityId }) => {
    const weatherData = useAppSelector((state) => state.cities.weather.find((weather) => weather.cityId === cityId));
    const weatherCategory = getWeatherCategory(weatherData?.weatherCode ?? -1);
 
-   const weatherIcons = [<SunnyIcon />, <Cloudy />, <RainyIcon />, <SnowIcon />, <FoggyIcon />];
    return (
       <WeatherWrapper>
          {weatherCategory !== -1 && (weatherIcons[weatherCategory] || <SunnyIcon />)}
